@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+    .maincontainereye {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #dab785;
+    }
+    .containereye {
+        position: relative;
+        cursor: pointer;
+    }
+    .iris {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border: 5px solid #333;
+        background-color: #0077b6;
+        border-radius: 50%;
+        left: 40px;
+        top: 30px;
+    }
+    .iris:before {
+        content: "";
+        position: absolute;
+        background-color: #333;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        top: 22%;
+        left: 22%;
+    }
+    .iris:after {
+        content: "";
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        top: 35%;
+        left: 65%;
+        box-shadow: -35px 20px rgba(255, 255, 255, 0.4);
+    }
+    .iris2 {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border: 5px solid #333;
+        background-color: #0077b6;
+        border-radius: 50%;
+        left: 40px;
+        top: 30px;
+    }
+    .iris2:before {
+        content: "";
+        position: absolute;
+        background-color: #333;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        top: 22%;
+        left: 22%;
+    }
+    .iris2:after {
+        content: "";
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        top: 35%;
+        left: 65%;
+        box-shadow: -35px 20px rgba(255, 255, 255, 0.4);
+    }
+    .eyeBall {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        background-color: white;
+        border: 5px solid #333;
+        border-radius: 100% 0;
+        box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.3);
+        transform: rotate(45deg);
+        top: -10px;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .eyeLid {
+        position: absolute;
+        border-top: 5px solid #333;
+        border-left: 5px solid #333;
+        border-radius: 100% 0;
+        width: 150px;
+        height: 150px;
+        top: -30px;
+        left: 3px;
+        transform: rotate(45deg);
+        transition: 0.2s;
+        z-index: 10;
+    }
+    .containereye:hover .eyeLid {
+        transform: rotate(-45deg) rotateX(160deg);
+    }
+    .containereye:hover .lid {
+        transform: translateY(90px);
+    }
+    .lid {
+        position: absolute;
+        z-index: 9;
+        background-color: #dab785;
+        width: 295px;
+        height: 270px;
+        border-radius: 50%;
+        top: -248px;
+        left: -68px;
+        transition: 0.2s;
+    }
+</style>
+</head>
+<body>
+
+<div class="maincontainereye">
+    <div class="containereye" style="margin-right:100px">
+        <div class="eyeBall">
+        <div class="iris"></div>
+        </div>
+        <div class="eyeLid"></div>
+        <div class="lid"></div>
+    </div>
+    <div class="containereye">
+        <div class="eyeBall">
+        <div class="iris2"></div>
+        </div>
+        <div class="eyeLid"></div>
+        <div class="lid"></div>
+    </div>
+</div>
+<script>
+    const eye = document.querySelector('.iris');
+    const eye2 = document.querySelector('.iris2');
+window.addEventListener('mousemove', (event) => {
+const x = -(window.innerWidth / 2 - event.pageX) / 35;
+const y = -(window.innerHeight / 2 - event.pageY) / 35;
+eye.style.transform = `rotate(-45deg) translateY(${y}px) translateX(${x}px)`;
+eye2.style.transform = `rotate(-45deg) translateY(${y}px) translateX(${x}px)`;
+});
+</script>
+</body>
+</html>
